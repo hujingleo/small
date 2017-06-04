@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dal>
+	<route>
+		<object name="com.ptteng.small.pub.model.Article"
+			listenerClass="" strategyProperty="">
+
+
+
+
+			<list name="getArticleIdsByType"
+				  sqlitem="select id from article where type=?  order by update_at desc"
+				  keyProperty="type" valueProperty="id" keyColumn="type" />
+
+					<list name="getArticleIdsByStatusAndSourceOrderByPublishat"
+				sqlitem="select id from article where status = ? and source = ? order by publish_at desc"
+				keyProperty="status,source" valueProperty="id" keyColumn="status,source" />
+					<list name="getArticleIdsBySourceOrderByPublishat"
+				sqlitem="select id from article where source=? order by publish_at desc"
+				keyProperty="source" valueProperty="id" keyColumn="source" />
+					<list name="getArticleIdsByTypeAndStatusOrderByPublishatDesc"
+				sqlitem="select id from article where type=? and status =? order by publish_at desc"
+				keyProperty="type,status" valueProperty="id" keyColumn="type,status" />
+			<list name="getArticleIdsByTypeAndStatusOrderByPublishatAscs"
+				  sqlitem="select id from article where type=? and status =? order by publish_at asc "
+				  keyProperty="type,status" valueProperty="id" keyColumn="type,status" />
+			
+						
+			
+					<list name="getArticleIdsAll" sqlitem="select id from article where 1 = 1 order by create_at desc"
+				keyProperty="version" valueProperty="id" keyColumn="version" />
+
+			<list name="getArticleIdsByType" sqlitem="select id from article where type = ? order by create_at desc"
+				  keyProperty="type" valueProperty="id" keyColumn="type" />
+
+			
+
+			<dbStrategy name="mutiDS"
+                clasz="com.gemantic.dal.route.strategy.DefaultStrategy">  <pattern value="[0-9]$"
+																				   group="small_public" />
+            </dbStrategy>
+			
+		</object>
+	</route>
+</dal>

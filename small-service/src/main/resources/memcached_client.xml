@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<cache>
+		<datasource
+				name="default"
+				timeout="300"
+				port="11211"
+				server="cache.haichuan.public"
+				maxActive="18"
+				maxIdle="18"
+				maxWait="-1"
+		/>
+	</cache>
+	<regions>
+
+		<!--<region name="com.ptteng.learn.course.model.Book" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Lesson" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Collaborate" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Paper" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Period" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Task" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Unit" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Progress" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.UserTaskRelation" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.UserFavoriteRelation" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.Locks" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.UserOpenidRelation" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!--<region name="com.ptteng.learn.course.model.User" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getProgressIdsByUserIDAndTargetIDAndType" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getUserTaskRelationProgressByUserIDAndPeriodID" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getUserFavoriteRelationIdByUserIDAndTypeAndTargetID" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getUserFavoriteRelationIdsByUserID" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getLocksIdsByUserIDAndType" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getUserOpenidRelationIdByOpenidAndType" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getUserOpenidRelationIdByUid" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!--<region name="getUserIdByMobile" listenerClass="com.gemantic.dal.cache.listener.DefaultListenerImpl" strategyClass="com.gemantic.memcached.route.strategy.DefaultStrategy">-->
+		<!--<keyPattern value="[0-9]$" datasource ="default"/>-->
+		<!--</region>-->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+		<!---->
+
+
+
+
+
+
+	</regions>
+</root>

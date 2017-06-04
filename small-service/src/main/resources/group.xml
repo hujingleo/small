@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<datasources>
+		<ds name="small_public"  
+			driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://db.small:3306/small?defaultBatchValue=1000"
+			username="root"
+			password="ZjM8#P.@rv"
+			maxActive="50"
+			maxIdle="50"
+			maxWait="10"
+			check="true"
+		/>
+		<ds name="idCenterDS"
+			driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://db.small:3306/resources?defaultBatchValue=1000"
+			username="root"
+			password="ZjM8#P.@rv"
+			maxActive=""
+			maxIdle=""
+			maxWait=""
+			check="true"
+		/>
+	</datasources>
+	<groups>
+		<group name="small_public" master="small_public"  />
+	</groups>
+</root>
+
+

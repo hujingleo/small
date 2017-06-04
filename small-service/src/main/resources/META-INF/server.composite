@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<composite xmlns="http://www.osoa.org/xmlns/sca/1.0" xmlns:tuscany="http://tuscany.apache.org/xmlns/sca/1.0"
+           xmlns:scallop="http://scallop/xmlns/sca/1.0"
+           targetNamespace="http://PublicComponent" xmlns:sample="http://PublicComponent" name="PublicComponent">
+
+    <component name="PublicComponent">
+        <implementation.spring location="META-INF/applicationContext-server.xml"/>
+    </component>
+
+    <service name="articleService" promote="PublicComponent/articleService">
+        <interface.java interface="com.ptteng.small.pub.service.ArticleService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="ArticleRMIService"/>
+    </service>
+
+    <service name="articleTypeService" promote="PublicComponent/articleTypeService">
+        <interface.java interface="com.ptteng.small.pub.service.ArticleTypeService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="ArticleTypeRMIService"/>
+    </service>
+    <service name="userService" promote="PublicComponent/userService">
+        <interface.java interface="com.ptteng.small.pub.service.UserService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="UserRMIService"/>
+    </service>
+    <service name="managerService" promote="PublicComponent/managerService">
+        <interface.java interface="com.ptteng.small.pub.service.ManagerService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="ManagerRMIService"/>
+    </service>
+
+
+    <service name="moduleService" promote="PublicComponent/moduleService">
+        <interface.java interface="com.ptteng.small.pub.service.ModuleService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="ModuleRMIService"/>
+    </service>
+
+    <service name="roleModuleService" promote="PublicComponent/roleModuleService">
+        <interface.java interface="com.ptteng.small.pub.service.RoleModuleService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="RoleModuleRMIService"/>
+    </service>
+
+
+    <service name="roleService" promote="PublicComponent/roleService">
+        <interface.java interface="com.ptteng.small.pub.service.RoleService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="RoleRMIService"/>
+    </service>
+
+    <service name="adviceService" promote="PublicComponent/adviceService">
+        <interface.java interface="com.ptteng.small.pub.service.AdviceService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="AdviceRMIService"/>
+    </service>
+
+    <service name="messageService" promote="PublicComponent/messageService">
+        <interface.java interface="com.ptteng.small.pub.service.MessageService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="MessageRMIService"/>
+    </service>
+    <service name="commentService" promote="PublicComponent/commentService">
+        <interface.java interface="com.ptteng.small.pub.service.CommentService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="CommentRMIService"/>
+    </service>
+    <service name="userArticleService" promote="PublicComponent/userArticleService">
+        <interface.java interface="com.ptteng.small.pub.service.UserArticleService"/>
+        <scallop:binding.rmi host="localhost" port="10730" serviceName="UserArticleRMIService"/>
+    </service>
+
+
+</composite>
+
+

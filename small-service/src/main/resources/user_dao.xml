@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dal>
+	<route>
+		<object name="com.ptteng.small.pub.model.User"
+			listenerClass="" strategyProperty="">
+			
+						
+			
+					<list name="getUserIdsAll" sqlitem="select id from user where 1 = 1 order by create_at desc"
+				keyProperty="version" valueProperty="id" keyColumn="version" />
+
+			
+
+			<dbStrategy name="mutiDS"
+                clasz="com.gemantic.dal.route.strategy.DefaultStrategy">  <pattern value="[0-9]$"
+																				   group="small_public" />
+            </dbStrategy>
+			
+		</object>
+	</route>
+</dal>

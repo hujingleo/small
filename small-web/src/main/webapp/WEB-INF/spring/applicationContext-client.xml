@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:sca="http://www.springframework.org/schema/sca"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+            http://www.springframework.org/schema/sca http://www.springframework.org/schema/sca/spring-sca.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.gemantic" />
+
+
+	<bean id="scaClient" class="com.gemantic.common.sca.service.SCAClientBean">
+		<property name="resource" value="client.composite" />
+	</bean>
+
+
+	<!-- ============================================================ -->
+	<!-- == HaichuanAuditComponent == -->
+	<!-- ============================================================ -->
+
+
+
+
+	
+	<!-- ============================================================ -->
+	<!-- == LotteryHomeComponent == -->
+	<!-- ============================================================ -->
+
+	<!-- ArticleService -->
+
+
+	<bean id="ArticleService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="ArticleServiceComponent" />
+		<property name="className"
+			value="com.ptteng.small.pub.service.ArticleService" />
+	</bean>
+	<!-- ArticleTypeService -->
+
+
+	<bean id="ArticleTypeService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="ArticleTypeServiceComponent" />
+		<property name="className"
+			value="com.ptteng.small.pub.service.ArticleTypeService" />
+	</bean>
+	<!-- UserService -->
+
+
+	<bean id="userService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="UserServiceComponent" />
+		<property name="className"
+			value="com.ptteng.small.pub.service.UserService" />
+	</bean>
+	<!-- ManagerService -->
+
+
+	<bean id="managerService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="ManagerServiceComponent" />
+		<property name="className"
+			value="com.ptteng.small.pub.service.ManagerService" />
+	</bean>
+
+
+
+
+
+	<!-- ModuleService -->
+
+
+	<bean id="moduleService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="ModuleServiceComponent" />
+		<property name="className"
+			value="com.ptteng.small.pub.service.ModuleService" />
+	</bean>
+
+
+
+
+
+	<!-- RoleService -->
+
+
+	<bean id="roleService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="RoleServiceComponent" />
+		<property name="className" value="com.ptteng.small.pub.service.RoleService" />
+	</bean>
+
+
+
+	<!-- RoleModuleService -->
+
+
+	<bean id="roleModuleService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+	<property name="client" ref="scaClient" />
+	<property name="component" value="RoleModuleServiceComponent" />
+	<property name="className"
+			  value="com.ptteng.small.pub.service.RoleModuleService" />
+</bean>
+
+
+
+	<bean id="adviceService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="AdviceServiceComponent" />
+		<property name="className"
+				  value="com.ptteng.small.pub.service.AdviceService" />
+	</bean>
+
+
+
+	<bean id="messageService" class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="MessageServiceComponent" />
+		<property name="className"
+				  value="com.ptteng.small.pub.service.MessageService" />
+	</bean>
+
+
+	<bean id="commentService"
+		  class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="CommentServiceComponent" />
+		<property name="className"
+				  value="com.ptteng.small.pub.service.CommentService" />
+	</bean>
+
+
+
+
+
+	<!-- UserArticleService  -->
+
+
+	<bean id="userArticleService"
+		  class="com.gemantic.common.sca.service.SCAClientServiceFactory">
+		<property name="client" ref="scaClient" />
+		<property name="component" value="UserArticleServiceComponent" />
+		<property name="className"
+				  value="com.ptteng.small.pub.service.UserArticleService" />
+	</bean>
+
+	<!-- performance -->
+
+	<aop:aspectj-autoproxy />
+	<bean id="aroundLoggingTime" class="com.gemantic.common.stat.aop.time.AroundTimeConsume" />
+	<aop:config>
+		<aop:aspect ref="aroundLoggingTime">
+			<aop:pointcut id="publicServiceMethod"
+				expression="execution(* com.gemantic..service.*.*(..)) &amp;&amp; (!execution(* com.gemantic.common.sca.service.*.*(..)))" />
+			<aop:around method="around" pointcut-ref="publicServiceMethod" />
+		</aop:aspect>
+	</aop:config>
+</beans>
+

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:sca="http://www.springframework.org/schema/sca"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+            http://www.springframework.org/schema/sca http://www.osoa.org/xmlns/sca/1.0/spring-sca.xsd">
+
+    <context:component-scan base-package="com.ptteng.small.pub.service"/>
+
+
+
+    <sca:service name="articleService"
+                 type="com.ptteng.small.pub.service.ArticleService" target="articleService"/>
+    <bean id="articleService"
+          class="com.ptteng.small.pub.service.impl.ArticleServiceImpl" parent="baseDaoService">
+    </bean>
+    
+    <sca:service name="articleTypeService"
+                 type="com.ptteng.small.pub.service.ArticleTypeService" target="articleTypeService"/>
+    <bean id="articleTypeService"
+          class="com.ptteng.small.pub.service.impl.ArticleTypeServiceImpl" parent="baseDaoService">
+    </bean>
+    <sca:service name="userService"
+                 type="com.ptteng.small.pub.service.UserService" target="userService"/>
+    <bean id="userService"
+          class="com.ptteng.small.pub.service.impl.UserServiceImpl" parent="baseDaoService">
+    </bean>
+    <sca:service name="managerService"
+                 type="com.ptteng.small.pub.service.ManagerService" target="managerService"/>
+    <bean id="managerService"
+          class="com.ptteng.small.pub.service.impl.ManagerServiceImpl" parent="baseDaoService">
+    </bean>
+
+
+    <sca:service name="moduleService"
+                 type="com.ptteng.small.pub.service.ModuleService" target="moduleService"/>
+    <bean id="moduleService"
+          class="com.ptteng.small.pub.service.impl.ModuleServiceImpl" parent="baseDaoService">
+    </bean>
+
+
+    <sca:service name="roleModuleService"
+                 type="com.ptteng.small.pub.service.RoleModuleService" target="roleModuleService"/>
+    <bean id="roleModuleService"
+          class="com.ptteng.small.pub.service.impl.RoleModuleServiceImpl" parent="baseDaoService">
+    </bean>
+
+    <sca:service name="roleService"
+                 type="com.ptteng.small.pub.service.RoleService" target="roleService"/>
+    <bean id="roleService"
+          class="com.ptteng.small.pub.service.impl.RoleServiceImpl" parent="baseDaoService">
+    </bean>
+
+    <sca:service name="adviceService"
+                 type="com.ptteng.small.pub.service.AdviceService" target="adviceService"/>
+    <bean id="adviceService"
+          class="com.ptteng.small.pub.service.impl.AdviceServiceImpl" parent="baseDaoService">
+    </bean>
+
+    <sca:service name="messageService"
+                 type="com.ptteng.small.pub.service.MessageService" target="messageService"/>
+    <bean id="messageService"
+          class="com.ptteng.small.pub.service.impl.MessageServiceImpl" parent="baseDaoService">
+    </bean>
+
+    <sca:service name="commentService"
+                 type="com.ptteng.small.pub.service.CommentService" target="commentService" />
+
+    <bean id="commentService"
+          class="com.ptteng.small.pub.service.impl.CommentServiceImpl" parent="baseDaoService">
+    </bean>
+    <sca:service name="userArticleService"
+                 type="com.ptteng.small.pub.service.UserArticleService" target="userArticleService" />
+    <bean id="userArticleService"
+          class="com.ptteng.small.pub.service.impl.UserArticleServiceImpl" parent="baseDaoService">
+    </bean>
+    <bean id="type_template" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="test" value="1">
+                </entry>
+
+
+                <entry key="password" value="81761">
+                </entry>
+
+                <entry key="register" value="81761">
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="dao" class="com.gemantic.dal.dao.impl.CompositeDaoImpl"/>
+    <bean id="baseDaoService"
+          class="com.ptteng.common.dao.BaseDaoServiceImpl">
+        <property name="dao" ref="dao"/>
+    </bean>
+
+
+    <!-- performance -->
+    <aop:aspectj-autoproxy/>
+    <bean id="aroundLoggingTime" class="com.gemantic.common.stat.aop.time.AroundTimeConsume"/>
+    <aop:config>
+        <aop:aspect ref="aroundLoggingTime">
+            <aop:pointcut id="publicServiceMethod"
+                          expression="execution(* com.ptteng..service.*.*(..)) "/>
+            <aop:around method="around" pointcut-ref="publicServiceMethod"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
